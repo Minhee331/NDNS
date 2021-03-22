@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
 
 [Service]
-ExecStart=/home/ubuntu/myvenv/bin/uwsgi -i /srv/django-deploy-test/.config/uwsgi/mysite.ini
+ExecStart=/home/ubuntu/env/bin/uwsgi -i /srv/2021_SearchEngine_Project/searchEngine/.config/uwsgi/searchEngine.ini
 
 Restart=always
 KillSignal=SIGQUIT
