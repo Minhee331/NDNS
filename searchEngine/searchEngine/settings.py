@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'search.apps.SearchConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -122,4 +123,29 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+# S3 설정을 위한 변수
+# AWS_xxx 의 변수들은 aws-S3, boto3 모듈을 위한 변수들이다.
+
+# 엑세스 키와 시크릿 키는 다른 파일로 작성, 임포트하여 사용
+AWS_ACCESS_KEY_ID = 'AKIA45ND5TKWN6LL7L5I'
+AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_REGION = 'ap-northeast-2'
+AWS_STORAGE_BUCKET_NAME = '2021searchbucket'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.%s.amazonaws.com' % (
+    AWS_STORAGE_BUCKET_NAME, AWS_REGION)
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
+AWS_DEFAULT_ACL = 'public-read'
+AWS_LOCATION = 'static'
+STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+# 미디어 파일을 위한 스토리지 설정
+DEFAULT_FILE_STORAGE = 'searchEngine.asset_storage.MediaStorage'
