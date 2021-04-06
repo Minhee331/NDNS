@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search-bar {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        /* Common styles */
+        .logo{
+            white-space: nowrap;
+            margin: 70px 0 0 4vw; /** 위 오른쪽 아래 왼쪽**/
+            font-size: 30px;
+            font-family: 'Minguk-Bold';
+            color: #30343B;
+        }
+        .search-box {
+            width: 40vw;
+            height: 45px;
+            padding: 0 0.5em 0 1.5em;
+            line-height: 30px;
+            border-radius: 12px 0 0 12px;
+            border: 1px solid;
+            border-color:rgba(112, 112, 112, 0.75);
+            box-sizing: border-box;
+            margin: 65px 0 0 2.5vw;
+            font-family: 'Minguk-Regular';
+            color: #707070;
+        }
+        .search-icon {
+            margin-top: 65px;
+            background: #fff;
+            border: 1px solid;
+            border-color:rgba(112, 112, 112, 0.75);
+            border-radius: 0 12px 12px 0;
+            flex-shrink: 0;
+        }
+        .search-icon img{
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-bar">
+        <p class="logo">네돈네산</p>
+        <input class="search-box" type="text" placeholder="제품명을 입력해주세요."/>
+        <button class="search-icon" type="submit"><img src="search_icon.png" alt=""></button>
+    </div>    
+</body>
+</html>
