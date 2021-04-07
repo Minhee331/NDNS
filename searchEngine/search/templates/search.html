@@ -4,86 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/searchstyle.css">
     <title>Document</title>
-    <style>
-        @font-face{
-            src : url("./YoonMingukB.ttf");
-            font-family: "Minguk-Bold"
-        }
-        @font-face{
-            src : url("./YoonMingukR.ttf");
-            font-family: "Minguk-Regular"
-        }
-        .search-bar {
-            display: flex;
-            margin-bottom: 10px;
-        }
-        /* Common styles */
-        .logo{
-            white-space: nowrap;
-            margin: 70px 0 0 4vw; /** 위 오른쪽 아래 왼쪽**/
-            font-size: 30px;
-            font-family: 'Minguk-Bold';
-            color: #30343B;
-        }
-        .search-box {
-            width: 40vw;
-            height: 45px;
-            padding: 0 0.5em 0 1.5em;
-            line-height: 30px;
-            border-radius: 12px 0 0 12px;
-            border: 1px solid;
-            border-color:rgba(112, 112, 112, 0.75);
-            box-sizing: border-box;
-            margin: 65px 0 0 2.5vw;
-            font-family: 'Minguk-Regular';
-            color: #707070;
-        }
-        .search-icon {
-            margin-top: 65px;
-            background: #fff;
-            border: 1px solid;
-            border-color:rgba(112, 112, 112, 0.75);
-            border-radius: 0 12px 12px 0;
-            flex-shrink: 0;
-        }
-        .search-icon img{
-            width: 30px;
-        }
-        .container{
-            /* background: #eeeeee;
-            margin-top: 65px;
-            margin-left: 65px; */
-            background: #eeeeee;
-            margin-top: 30px; 
-            padding-top: 20px;
-        }
-        .box{
-            background: #fff;
-            margin-left: 65px;
-            margin-right: 120px;
-            padding: 20px 20px 20px 100px ;
-            font-family: 'Minguk-Bold';
-            border-bottom: 1.5px solid;
-            border-color:#eeeeee;
-            line-height: 1.5em;
-        }
-        .title{
-            font-size: 15px;
-        }
-        .summary{
-            font-size: 15px;
-        }
-        .tab{
-            background: #fff;
-            padding-top: 20px;
-            margin-left: 65px;
-            margin-right: 120px;
-        }
-        #review_title{
-            font-size: 22px;
-        }
-    </style>
+    
 </head>
 <body>
     <div class="search-bar">
@@ -93,130 +16,99 @@
     </div>    
     <div class="container">
         <div class="tab">
-            <button>네돈네산 리뷰</button>
-            <button>광고 리뷰</button>
+            <button id="real-button">네돈네산 리뷰</button>
+            <button id="ad-button">광고 리뷰</button>
         </div>
         <!-- 진짜 후기 내용 -->
         <div name="real-review">
             <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
+                <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                <div class="review">
+                    <div class="title">
+                        <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
+                        <br>
+                        <a href="https://www.google.com" target="_blank">https://www.google.com</a>
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+                    </div>
                 </div>
             </div>
             <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
+                <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                <div class="review">
+                    <div class="title">
+                        <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
+                        <br>
+                        <a href="https://www.google.com" target="_blank">https://www.google.com</a>
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+                    </div>
                 </div>
             </div>
             <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
+                <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                <div class="review">
+                    <div class="title">
+                        <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
+                        <br>
+                        <a href="https://www.google.com" target="_blank">https://www.google.com</a>
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- 가짜 후기 내용 -->
         <div name="ad-review">
             <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
+                <img class="site_logo" src="https://m.caroom.co.kr/img/login/naver.png" width="40" height="40" alt="Google logo">
+                <div class="review">
+                    <div class="title">
+                        <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
+                        <br>
+                        <a href="https://www.google.com" target="_blank">https://www.google.com</a>
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+                    </div>
                 </div>
             </div>
             <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
-                </div>
-            </div>
-            <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
+                <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                <div class="review">
+                    <div class="title">
+                        <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
+                        <br>
+                        <a href="https://www.google.com" target="_blank">https://www.google.com</a>
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+                    </div>
                 </div>
             </div>
             <div class="box">
-                <div class="title">
-                    <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                    <br>
-                    <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                    </a>
-                </div>
-                <div class="summary">
-                    <a>콧물 스킨 ㄴㄴ, 생각보다 좋아요, 진성후기임</a>
+                <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                <div class="review">
+                    <div class="title">
+                        <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
+                        <br>
+                        <a href="https://www.google.com" target="_blank">https://www.google.com</a>
+                        </a>
+                    </div>
+                    <div class="summary">
+                        <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
-    <style>
-
-    </style>
 </body>
 </html>
