@@ -20,6 +20,9 @@
                 <div class="tab">
                     <button id="realBtn" onclick="realBtnClick();">네돈네산 리뷰</button>
                     <button id="adBtn" onclick="adBtnClick();">광고 리뷰</button>
+                    <div id=negative>negative</div>
+                    <div id=positive>positive</div>
+                    
                 </div>
                 <!-- 진짜 후기 내용 -->
                 <div id="realReview">
@@ -36,6 +39,7 @@
                                 <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
                             </div>
                         </div>
+                        <canvas id="canvas" width=145 height=145></canvas>
                     </div>
                     <div class="box">
                         <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
@@ -50,6 +54,7 @@
                                 <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
                             </div>
                         </div>
+                        <canvas id="canvas" width=145 height=145></canvas>
                     </div>
                     <div class="box">
                         <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
@@ -64,6 +69,7 @@
                                 <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
                             </div>
                         </div>
+                        <canvas id="canvas" width=145 height=145></canvas>
                     </div>
                     <div class="box">
                         <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
@@ -165,6 +171,7 @@
                                 <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
                             </div>
                         </div>
+                        <canvas id="canvas" width=150 height=150></canvas>
                     </div>
                     <div class="box">
                         <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
@@ -224,5 +231,35 @@
         realRv.style.display = "none";
         adRv.style.display = "";
     };
+
+    var canvas=document.getElementById("canvas");
+    var ctx=canvas.getContext("2d");
+    var colors=['#30343B','#FFD368'];
+    var values=[25,75];
+    var labels=['Positive','Negative'];
+    
+    Chart(72.5,72.5,45,35,values,colors,labels,1);
+    
+    function Chart(cx,cy,radius,arcwidth,values,colors,labels,selectedValue){
+        var tot=0;
+        var accum=0;
+        var PI=Math.PI;
+        var PI2=PI*2;
+        var offset=-PI/2;
+        ctx.lineWidth=arcwidth;
+        for(var i=0;i<values.length;i++){tot+=values[i];}
+        for(var i=0;i<values.length;i++){
+            ctx.beginPath();
+            ctx.arc(cx,cy,radius,
+                offset+PI2*(accum/tot),
+                offset+PI2*((accum+values[i])/tot)
+            );
+            ctx.strokeStyle=colors[i];
+            ctx.stroke();
+            accum+=values[i];
+        }
+            var innerRadius=radius-arcwidth-3;
+    }
+
 </script>
 </html>
