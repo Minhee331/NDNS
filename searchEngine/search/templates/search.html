@@ -4,31 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/searchstyle.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/searchstyle.css">
     <title>Document</title>
     
 </head>
 <body>
     <div class="all">
         <div class="search-bar">
-            <p class="logo">네돈네산</p>
-            <input class="search-box" type="text" placeholder="제품명을 입력해주세요."/>
-            <button class="search-icon" type="submit"><img src="search_icon.png" alt=""></button>
+            <p class="logo" onclick="location.href='/';">네돈네산</p>
+            <input id="searchVal" class="search-box" type="text" placeholder="제품명을 입력해주세요."/>
+            <button id="search" class="search-icon" type="submit"><img src="{{STATIC_URL}}img/search_icon.png" alt=""></button>
         </div>    
         <div class="container">
             <div class="searchResult">
                 <div class="tab">
                     <button id="realBtn" onclick="realBtnClick();">네돈네산 리뷰</button>
                     <button id="adBtn" onclick="adBtnClick();">광고 리뷰</button>
-                    <div id=negative></div>
-                    <div>negative</div>
+                </div>
+                <div class="chart-index">
                     <div id=positive></div>
-                    <div>positive</div>
+                    <div>긍정</div>
+                    <div id=negative></div>
+                    <div>부정</div>
                 </div>
                 <!-- 진짜 후기 내용 -->
                 <div id="realReview">
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -43,7 +45,7 @@
                         <div class="chart"><canvas id="canvas1" width=145 height=145></canvas></div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -59,7 +61,7 @@
                         
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -74,7 +76,7 @@
                         <div class="chart"><canvas id="canvas3" width=145 height=145></canvas></div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -88,7 +90,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -102,7 +104,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -116,7 +118,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -130,7 +132,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -144,7 +146,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -161,7 +163,7 @@
                 <!-- 가짜 후기 내용 -->
                 <div id="adReview" style="display: none;">
                     <div class="box">
-                        <img class="site_logo" src="./navericon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/navericon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -176,7 +178,7 @@
                         <canvas id="canvas" width=150 height=150></canvas>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -190,7 +192,7 @@
                         </div>
                     </div>
                     <div class="box">
-                        <img class="site_logo" src="./googleicon.png" width="40" height="40" alt="Google logo">
+                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
                         <div class="review">
                             <div class="title">
                                 <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
@@ -208,11 +210,13 @@
         </div>
     </div>
 </body>
+<script src="{{STATIC_URL}}common.js"></script>
 <script>
     let realBtn = document.getElementById("realBtn");
     let adBtn = document.getElementById("adBtn"); 
     let realRv = document.getElementById("realReview");
     let adRv = document.getElementById("adReview");
+    document.getElementById("searchVal").value = '{{searchVal}}'
     function realBtnClick() {
         realBtn.style.background = "#30343B";
         realBtn.style.color = "white";
@@ -265,6 +269,5 @@
             accum+=values[i];
         }
     }
-
 </script>
 </html>

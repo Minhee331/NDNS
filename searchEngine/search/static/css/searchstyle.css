@@ -1,0 +1,204 @@
+@font-face {
+  src: url("../fonts/YoonMingukB.ttf");
+  font-family: "Minguk-Bold";
+}
+@font-face {
+  src: url("../fonts/YoonMingukR.ttf");
+  font-family: "Minguk-Regular";
+}
+body {
+  margin: 0px;
+  padding: 0px;
+}
+.all{
+  background: #eeeeee;
+  position: relative;
+  top: 60px;
+  min-height: 80vh;
+  height: 100%;
+  padding-bottom: 55px;
+}
+.search-bar {
+  display: flex;
+  /* margin-bottom: 10px; */
+  position: absolute;
+  top: -15px;
+}
+/* Common styles */
+.logo {
+  white-space: nowrap;
+  /* margin: 70px 0 0 4vw; * 위 오른쪽 아래 왼쪽* */
+  margin: 0 0 0 4vw;
+  font-size: 30px;
+  font-family: "Minguk-Bold";
+  color: #30343b;
+}
+.search-box {
+  width: 40vw;
+  height: 45px;
+  padding: 0 0.5em 0 1.5em;
+  line-height: 30px;
+  border-radius: 12px 0 0 12px;
+  border: 1px solid;
+  border-color: rgba(112, 112, 112, 0.75);
+  box-sizing: border-box;
+  /* margin: 65px 0 0 2.5vw; */
+  margin: 0 0 0 2.5vw;
+  font-family: "Minguk-Regular";
+  color: #707070;
+}
+.search-icon {
+  /* margin-top: 65px; */
+  background: #fff;
+  border: 1px solid;
+  border-color: rgba(112, 112, 112, 0.75);
+  border-radius: 0 12px 12px 0;
+  flex-shrink: 0;
+}
+.search-icon img {
+  width: 30px;
+}
+.container {
+  /* background: #eeeeee;
+    margin-top: 65px;
+    margin-left: 65px; */
+  /* background: #eeeeee; */
+  margin-top: 30px;
+  padding-top: 55px;
+}
+.searchResult {
+  position: relative;
+  top: 15px;
+  min-height: 80vh;
+  height: 100%;
+  background: #fff;
+  margin : 0 2.3vw 0 2.3vw;
+}
+.box {
+  /* box 클래스를 플렉스박스로 전환하는 코드 */
+  display: flex;
+  /* align-items 는 여기서 y축 정렬을 다룸 : center 로 설정; */
+  align-items: center;
+  /* background: #fff; */
+  /* margin-left: 65px; */
+  margin-right: 100px;
+  padding: 20px 20px 20px 10px;
+  font-family: "Minguk-Bold";
+  border-bottom: 1.5px solid;
+  border-color: #eeeeee;
+  line-height: 1.5em;
+}
+.site_logo {
+  /* 여기서 마진은 제거하였음. */
+  margin-left: 1%;
+  float: left;
+  vertical-align: middle;
+}
+
+.review {
+  float: left;
+  margin-left: 30px;
+  vertical-align: middle;
+}
+#review_title {
+  font-size: 20px;
+}
+.title {
+  font-size: 15px;
+}
+.summary {
+  font-size: 15px;
+}
+
+.tab {
+  /* background: #eeeeee; */
+  display: flex;
+  margin-left: 25px;
+  font-family: "Minguk-Bold";
+  position: absolute;
+  top: -15px;
+  min-width: 250px;
+}
+.chart-index{
+  display: flex;
+  margin-left: 25px;
+  font-family: "Minguk-Bold";
+  position: absolute;
+  right : 125px;
+  top: -10px;
+  min-width: 250px;
+}
+
+#realBtn{
+  background:#30343B;
+  border: 0;
+  border-color: #30343b;
+  font-family: "Minguk-Bold";
+  color: white;
+  padding: 1px 20px 1px 20px;
+  height: 30px;
+  border-radius: 5px;
+  /* width: 150px; */
+  width: 8.3vw;
+  min-width: 120px;
+  margin-right: 5px;
+}
+#adBtn{
+  background: #fff;
+  border: 1px solid;
+  border-color: #30343b;
+  font-family: "Minguk-Bold";
+  color: #30343B;
+  padding: 1px 20px 1px 20px;
+  height: 30px;
+  border-radius: 5px;
+  /* width: 150px; */
+  width: 8.3vw;
+  min-width: 120px;
+}
+
+#realReview {
+  /* background: #eeeeee; */
+  padding: 30px 0 50px 40px;
+  overflow: scroll;
+}
+#adReview {
+  /* background: #eeeeee; */
+  padding: 30px 0 50px 40px;
+  overflow: scroll;
+}
+
+.chart{
+  display: flex;
+  float:right;
+  vertical-align: middle;
+  margin-left: auto;
+}
+
+#negative{
+  width:20px;
+  height:20px;
+  float:right;
+  background-color:  #30343B;
+  margin-left: 20px;
+  margin-right: 5px;
+}
+#positive{
+  display: flex;
+  width:20px;
+  height:20px;
+  float:right;
+  background-color:  #FFD368;
+  margin-left:auto;
+  margin-right: 5px;
+}
+
+
+@media screen and (max-width: 780px) {
+  .chart {
+    display: none;
+  }
+  .chart-index{
+    display: none;
+  }
+}
