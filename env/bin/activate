@@ -3657,4 +3657,206 @@ KeyboardInterrupt
 [1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir searchEngine % [K[?2004h[?2004l
 [1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir searchEngine % [K[?2004h[?2004l
 [1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir searchEngine % [K[?2004hㅎ  ccd //  ..[?2004l
-[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir 2021_SearchEngine_Project % [K[?2004hccdc  p ggit a
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir 2021_SearchEngine_Project % [K[?2004hccdc  p ggit a  g  lls[?2004l
+README.md		env			searchEngine		static
+crawler.py		requirements.txt	started			uwsgi.service
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir 2021_SearchEngine_Project % [K[?2004hggit add .[?2004l
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir 2021_SearchEngine_Project % [K[?2004hggit commit -m "views.py 수정 및 url 연결"[?2004l
+[main 7180a9d] views.py 수정 및 url 연결
+ 171 files changed, 34599 insertions(+), 99 deletions(-)
+ rewrite env/bin/activate (99%)
+ rewrite searchEngine/search/__pycache__/apps.cpython-39.pyc (69%)
+ rewrite searchEngine/search/__pycache__/views.cpython-39.pyc (98%)
+ create mode 100644 searchEngine/search/static/common.js
+ rename searchEngine/search/{templates => static}/css/searchstyle.css (92%)
+ rename searchEngine/search/{templates => static}/css/style.css (100%)
+ rename searchEngine/search/{templates => static/fonts}/YoonMingukB.ttf (100%)
+ rename searchEngine/search/{templates => static/fonts}/YoonMingukR.ttf (100%)
+ rename searchEngine/search/{templates => static/img}/googleicon.png (100%)
+ rename searchEngine/search/{templates => static/img}/navericon.png (100%)
+ rename searchEngine/search/{templates => static/img}/search_icon.png (100%)
+ create mode 100644 searchEngine/search/templates/Document.html
+ create mode 100644 searchEngine/search/templates/Document_files/common.js
+ create mode 100644 searchEngine/search/templates/Document_files/googleicon.png
+ create mode 100644 searchEngine/search/templates/Document_files/navericon.png
+ create mode 100644 searchEngine/search/templates/Document_files/search_icon.png
+ create mode 100644 searchEngine/search/templates/Document_files/searchstyle.css
+ rewrite searchEngine/searchEngine/__pycache__/settings.cpython-39.pyc (67%)
+ create mode 100644 started
+ create mode 100644 static/admin/css/autocomplete.css
+ create mode 100644 static/admin/css/base.css
+ create mode 100644 static/admin/css/changelists.css
+ create mode 100644 static/admin/css/dashboard.css
+ create mode 100644 static/admin/css/fonts.css
+ create mode 100644 static/admin/css/forms.css
+ create mode 100644 static/admin/css/login.css
+ create mode 100644 static/admin/css/nav_sidebar.css
+ create mode 100644 static/admin/css/responsive.css
+ create mode 100644 static/admin/css/responsive_rtl.css
+ create mode 100644 static/admin/css/rtl.css
+ create mode 100644 static/admin/css/vendor/select2/LICENSE-SELECT2.md
+ create mode 100644 static/admin/css/vendor/select2/select2.css
+ create mode 100644 static/admin/css/vendor/select2/select2.min.css
+ create mode 100644 static/admin/css/widgets.css
+ create mode 100644 static/admin/fonts/LICENSE.txt
+ create mode 100644 static/admin/fonts/README.txt
+ create mode 100644 static/admin/fonts/Roboto-Bold-webfont.woff
+ create mode 100644 static/admin/fonts/Roboto-Light-webfont.woff
+ create mode 100644 static/admin/fonts/Roboto-Regular-webfont.woff
+ create mode 100644 static/admin/img/LICENSE
+ create mode 100644 static/admin/img/README.txt
+ create mode 100644 static/admin/img/calendar-icons.svg
+ create mode 100644 static/admin/img/gis/move_vertex_off.svg
+ create mode 100644 static/admin/img/gis/move_vertex_on.svg
+ create mode 100644 static/admin/img/icon-addlink.svg
+ create mode 100644 static/admin/img/icon-alert.svg
+ create mode 100644 static/admin/img/icon-calendar.svg
+ create mode 100644 static/admin/img/icon-changelink.svg
+ create mode 100644 static/admin/img/icon-clock.svg
+ create mode 100644 static/admin/img/icon-deletelink.svg
+ create mode 100644 static/admin/img/icon-no.svg
+ create mode 100644 static/admin/img/icon-unknown-alt.svg
+ create mode 100644 static/admin/img/icon-unknown.svg
+ create mode 100644 static/admin/img/icon-viewlink.svg
+ create mode 100644 static/admin/img/icon-yes.svg
+ create mode 100644 static/admin/img/inline-delete.svg
+ create mode 100644 static/admin/img/search.svg
+ create mode 100644 static/admin/img/selector-icons.svg
+ create mode 100644 static/admin/img/sorting-icons.svg
+ create mode 100644 static/admin/img/tooltag-add.svg
+ create mode 100644 static/admin/img/tooltag-arrowright.svg
+ create mode 100644 static/admin/js/SelectBox.js
+ create mode 100644 static/admin/js/SelectFilter2.js
+ create mode 100644 static/admin/js/actions.js
+ create mode 100644 static/admin/js/actions.min.js
+ create mode 100644 static/admin/js/admin/DateTimeShortcuts.js
+ create mode 100644 static/admin/js/admin/RelatedObjectLookups.js
+ create mode 100644 static/admin/js/autocomplete.js
+ create mode 100644 static/admin/js/calendar.js
+ create mode 100644 static/admin/js/cancel.js
+ create mode 100644 static/admin/js/change_form.js
+ create mode 100644 static/admin/js/collapse.js
+ create mode 100644 static/admin/js/collapse.min.js
+ create mode 100644 static/admin/js/core.js
+ create mode 100644 static/admin/js/inlines.js
+ create mode 100644 static/admin/js/inlines.min.js
+ create mode 100644 static/admin/js/jquery.init.js
+ create mode 100644 static/admin/js/nav_sidebar.js
+ create mode 100644 static/admin/js/popup_response.js
+ create mode 100644 static/admin/js/prepopulate.js
+ create mode 100644 static/admin/js/prepopulate.min.js
+ create mode 100644 static/admin/js/prepopulate_init.js
+ create mode 100644 static/admin/js/urlify.js
+ create mode 100644 static/admin/js/vendor/jquery/LICENSE.txt
+ create mode 100644 static/admin/js/vendor/jquery/jquery.js
+ create mode 100644 static/admin/js/vendor/jquery/jquery.min.js
+ create mode 100644 static/admin/js/vendor/select2/LICENSE.md
+ create mode 100644 static/admin/js/vendor/select2/i18n/af.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ar.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/az.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/bg.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/bn.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/bs.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ca.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/cs.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/da.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/de.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/dsb.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/el.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/en.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/es.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/et.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/eu.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/fa.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/fi.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/fr.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/gl.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/he.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/hi.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/hr.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/hsb.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/hu.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/hy.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/id.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/is.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/it.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ja.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ka.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/km.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ko.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/lt.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/lv.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/mk.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ms.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/nb.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ne.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/nl.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/pl.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ps.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/pt-BR.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/pt.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ro.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/ru.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/sk.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/sl.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/sq.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/sr-Cyrl.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/sr.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/sv.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/th.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/tk.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/tr.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/uk.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/vi.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/zh-CN.js
+ create mode 100644 static/admin/js/vendor/select2/i18n/zh-TW.js
+ create mode 100644 static/admin/js/vendor/select2/select2.full.js
+ create mode 100644 static/admin/js/vendor/select2/select2.full.min.js
+ create mode 100644 static/admin/js/vendor/xregexp/LICENSE.txt
+ create mode 100644 static/admin/js/vendor/xregexp/xregexp.js
+ create mode 100644 static/admin/js/vendor/xregexp/xregexp.min.js
+ create mode 100644 static/common.js
+ create mode 100644 static/css/searchstyle.css
+ create mode 100644 static/css/style.css
+ create mode 100644 static/fonts/YoonMingukB.ttf
+ create mode 100644 static/fonts/YoonMingukR.ttf
+ create mode 100644 static/img/googleicon.png
+ create mode 100644 static/img/navericon.png
+ create mode 100644 static/img/search_icon.png
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir 2021_SearchEngine_Project % [K[?2004hggit push origin main[?2004l
+오브젝트 나열하는 중: 203, 완료.
+오브젝트 개수 세는 중:   0% (1/203)오브젝트 개수 세는 중:   1% (3/203)오브젝트 개수 세는 중:   2% (5/203)오브젝트 개수 세는 중:   3% (7/203)오브젝트 개수 세는 중:   4% (9/203)오브젝트 개수 세는 중:   5% (11/203)오브젝트 개수 세는 중:   6% (13/203)오브젝트 개수 세는 중:   7% (15/203)오브젝트 개수 세는 중:   8% (17/203)오브젝트 개수 세는 중:   9% (19/203)오브젝트 개수 세는 중:  10% (21/203)오브젝트 개수 세는 중:  11% (23/203)오브젝트 개수 세는 중:  12% (25/203)오브젝트 개수 세는 중:  13% (27/203)오브젝트 개수 세는 중:  14% (29/203)오브젝트 개수 세는 중:  15% (31/203)오브젝트 개수 세는 중:  16% (33/203)오브젝트 개수 세는 중:  17% (35/203)오브젝트 개수 세는 중:  18% (37/203)오브젝트 개수 세는 중:  19% (39/203)오브젝트 개수 세는 중:  20% (41/203)오브젝트 개수 세는 중:  21% (43/203)오브젝트 개수 세는 중:  22% (45/203)오브젝트 개수 세는 중:  23% (47/203)오브젝트 개수 세는 중:  24% (49/203)오브젝트 개수 세는 중:  25% (51/203)오브젝트 개수 세는 중:  26% (53/203)오브젝트 개수 세는 중:  27% (55/203)오브젝트 개수 세는 중:  28% (57/203)오브젝트 개수 세는 중:  29% (59/203)오브젝트 개수 세는 중:  30% (61/203)오브젝트 개수 세는 중:  31% (63/203)오브젝트 개수 세는 중:  32% (65/203)오브젝트 개수 세는 중:  33% (67/203)오브젝트 개수 세는 중:  34% (70/203)오브젝트 개수 세는 중:  35% (72/203)오브젝트 개수 세는 중:  36% (74/203)오브젝트 개수 세는 중:  37% (76/203)오브젝트 개수 세는 중:  38% (78/203)오브젝트 개수 세는 중:  39% (80/203)오브젝트 개수 세는 중:  40% (82/203)오브젝트 개수 세는 중:  41% (84/203)오브젝트 개수 세는 중:  42% (86/203)오브젝트 개수 세는 중:  43% (88/203)오브젝트 개수 세는 중:  44% (90/203)오브젝트 개수 세는 중:  45% (92/203)오브젝트 개수 세는 중:  46% (94/203)오브젝트 개수 세는 중:  47% (96/203)오브젝트 개수 세는 중:  48% (98/203)오브젝트 개수 세는 중:  49% (100/203)오브젝트 개수 세는 중:  50% (102/203)오브젝트 개수 세는 중:  51% (104/203)오브젝트 개수 세는 중:  52% (106/203)오브젝트 개수 세는 중:  53% (108/203)오브젝트 개수 세는 중:  54% (110/203)오브젝트 개수 세는 중:  55% (112/203)오브젝트 개수 세는 중:  56% (114/203)오브젝트 개수 세는 중:  57% (116/203)오브젝트 개수 세는 중:  58% (118/203)오브젝트 개수 세는 중:  59% (120/203)오브젝트 개수 세는 중:  60% (122/203)오브젝트 개수 세는 중:  61% (124/203)오브젝트 개수 세는 중:  62% (126/203)오브젝트 개수 세는 중:  63% (128/203)오브젝트 개수 세는 중:  64% (130/203)오브젝트 개수 세는 중:  65% (132/203)오브젝트 개수 세는 중:  66% (134/203)오브젝트 개수 세는 중:  67% (137/203)오브젝트 개수 세는 중:  68% (139/203)오브젝트 개수 세는 중:  69% (141/203)오브젝트 개수 세는 중:  70% (143/203)오브젝트 개수 세는 중:  71% (145/203)오브젝트 개수 세는 중:  72% (147/203)오브젝트 개수 세는 중:  73% (149/203)오브젝트 개수 세는 중:  74% (151/203)오브젝트 개수 세는 중:  75% (153/203)오브젝트 개수 세는 중:  76% (155/203)오브젝트 개수 세는 중:  77% (157/203)오브젝트 개수 세는 중:  78% (159/203)오브젝트 개수 세는 중:  79% (161/203)오브젝트 개수 세는 중:  80% (163/203)오브젝트 개수 세는 중:  81% (165/203)오브젝트 개수 세는 중:  82% (167/203)오브젝트 개수 세는 중:  83% (169/203)오브젝트 개수 세는 중:  84% (171/203)오브젝트 개수 세는 중:  85% (173/203)오브젝트 개수 세는 중:  86% (175/203)오브젝트 개수 세는 중:  87% (177/203)오브젝트 개수 세는 중:  88% (179/203)오브젝트 개수 세는 중:  89% (181/203)오브젝트 개수 세는 중:  90% (183/203)오브젝트 개수 세는 중:  91% (185/203)오브젝트 개수 세는 중:  92% (187/203)오브젝트 개수 세는 중:  93% (189/203)오브젝트 개수 세는 중:  94% (191/203)오브젝트 개수 세는 중:  95% (193/203)오브젝트 개수 세는 중:  96% (195/203)오브젝트 개수 세는 중:  97% (197/203)오브젝트 개수 세는 중:  98% (199/203)오브젝트 개수 세는 중:  99% (201/203)오브젝트 개수 세는 중: 100% (203/203)오브젝트 개수 세는 중: 100% (203/203), 완료.
+Delta compression using up to 8 threads
+오브젝트 압축하는 중:   0% (1/155)오브젝트 압축하는 중:   1% (2/155)오브젝트 압축하는 중:   2% (4/155)오브젝트 압축하는 중:   3% (5/155)오브젝트 압축하는 중:   4% (7/155)오브젝트 압축하는 중:   5% (8/155)오브젝트 압축하는 중:   6% (10/155)오브젝트 압축하는 중:   7% (11/155)오브젝트 압축하는 중:   8% (13/155)오브젝트 압축하는 중:   9% (14/155)오브젝트 압축하는 중:  10% (16/155)오브젝트 압축하는 중:  11% (18/155)오브젝트 압축하는 중:  12% (19/155)오브젝트 압축하는 중:  13% (21/155)오브젝트 압축하는 중:  14% (22/155)오브젝트 압축하는 중:  15% (24/155)오브젝트 압축하는 중:  16% (25/155)오브젝트 압축하는 중:  17% (27/155)오브젝트 압축하는 중:  18% (28/155)오브젝트 압축하는 중:  19% (30/155)오브젝트 압축하는 중:  20% (31/155)오브젝트 압축하는 중:  21% (33/155)오브젝트 압축하는 중:  22% (35/155)오브젝트 압축하는 중:  23% (36/155)오브젝트 압축하는 중:  24% (38/155)오브젝트 압축하는 중:  25% (39/155)오브젝트 압축하는 중:  26% (41/155)오브젝트 압축하는 중:  27% (42/155)오브젝트 압축하는 중:  28% (44/155)오브젝트 압축하는 중:  29% (45/155)오브젝트 압축하는 중:  30% (47/155)오브젝트 압축하는 중:  31% (49/155)오브젝트 압축하는 중:  32% (50/155)오브젝트 압축하는 중:  33% (52/155)오브젝트 압축하는 중:  34% (53/155)오브젝트 압축하는 중:  35% (55/155)오브젝트 압축하는 중:  36% (56/155)오브젝트 압축하는 중:  37% (58/155)오브젝트 압축하는 중:  38% (59/155)오브젝트 압축하는 중:  39% (61/155)오브젝트 압축하는 중:  40% (62/155)오브젝트 압축하는 중:  41% (64/155)오브젝트 압축하는 중:  42% (66/155)오브젝트 압축하는 중:  43% (67/155)오브젝트 압축하는 중:  44% (69/155)오브젝트 압축하는 중:  45% (70/155)오브젝트 압축하는 중:  46% (72/155)오브젝트 압축하는 중:  47% (73/155)오브젝트 압축하는 중:  48% (75/155)오브젝트 압축하는 중:  49% (76/155)오브젝트 압축하는 중:  50% (78/155)오브젝트 압축하는 중:  51% (80/155)오브젝트 압축하는 중:  52% (81/155)오브젝트 압축하는 중:  53% (83/155)오브젝트 압축하는 중:  54% (84/155)오브젝트 압축하는 중:  55% (86/155)오브젝트 압축하는 중:  56% (87/155)오브젝트 압축하는 중:  57% (89/155)오브젝트 압축하는 중:  58% (90/155)오브젝트 압축하는 중:  59% (92/155)오브젝트 압축하는 중:  60% (93/155)오브젝트 압축하는 중:  61% (95/155)오브젝트 압축하는 중:  62% (97/155)오브젝트 압축하는 중:  63% (98/155)오브젝트 압축하는 중:  64% (100/155)오브젝트 압축하는 중:  65% (101/155)오브젝트 압축하는 중:  66% (103/155)오브젝트 압축하는 중:  67% (104/155)오브젝트 압축하는 중:  68% (106/155)오브젝트 압축하는 중:  69% (107/155)오브젝트 압축하는 중:  70% (109/155)오브젝트 압축하는 중:  71% (111/155)오브젝트 압축하는 중:  72% (112/155)오브젝트 압축하는 중:  73% (114/155)오브젝트 압축하는 중:  74% (115/155)오브젝트 압축하는 중:  75% (117/155)오브젝트 압축하는 중:  76% (118/155)오브젝트 압축하는 중:  77% (120/155)오브젝트 압축하는 중:  78% (121/155)오브젝트 압축하는 중:  79% (123/155)오브젝트 압축하는 중:  80% (124/155)오브젝트 압축하는 중:  81% (126/155)오브젝트 압축하는 중:  82% (128/155)오브젝트 압축하는 중:  83% (129/155)오브젝트 압축하는 중:  84% (131/155)오브젝트 압축하는 중:  85% (132/155)오브젝트 압축하는 중:  86% (134/155)오브젝트 압축하는 중:  87% (135/155)오브젝트 압축하는 중:  88% (137/155)오브젝트 압축하는 중:  89% (138/155)오브젝트 압축하는 중:  90% (140/155)오브젝트 압축하는 중:  91% (142/155)오브젝트 압축하는 중:  92% (143/155)오브젝트 압축하는 중:  93% (145/155)오브젝트 압축하는 중:  94% (146/155)오브젝트 압축하는 중:  95% (148/155)오브젝트 압축하는 중:  96% (149/155)오브젝트 압축하는 중:  97% (151/155)오브젝트 압축하는 중:  98% (152/155)오브젝트 압축하는 중:  99% (154/155)오브젝트 압축하는 중: 100% (155/155)오브젝트 압축하는 중: 100% (155/155), 완료.
+오브젝트 쓰는 중:   0% (1/185)오브젝트 쓰는 중:   1% (2/185)오브젝트 쓰는 중:   2% (4/185)오브젝트 쓰는 중:   3% (6/185)오브젝트 쓰는 중:   4% (8/185)오브젝트 쓰는 중:   5% (11/185)오브젝트 쓰는 중:   7% (13/185)오브젝트 쓰는 중:   8% (15/185)오브젝트 쓰는 중:   9% (17/185)오브젝트 쓰는 중:  10% (20/185)오브젝트 쓰는 중:  11% (21/185)오브젝트 쓰는 중:  12% (23/185)오브젝트 쓰는 중:  13% (25/185)오브젝트 쓰는 중:  14% (26/185)오브젝트 쓰는 중:  15% (28/185)오브젝트 쓰는 중:  16% (30/185)오브젝트 쓰는 중:  17% (32/185)오브젝트 쓰는 중:  18% (34/185)오브젝트 쓰는 중:  19% (36/185)오브젝트 쓰는 중:  20% (37/185)오브젝트 쓰는 중:  21% (39/185)오브젝트 쓰는 중:  22% (41/185)오브젝트 쓰는 중:  23% (43/185)오브젝트 쓰는 중:  24% (45/185)오브젝트 쓰는 중:  25% (47/185)오브젝트 쓰는 중:  26% (49/185)오브젝트 쓰는 중:  27% (50/185)오브젝트 쓰는 중:  28% (52/185)오브젝트 쓰는 중:  29% (54/185)오브젝트 쓰는 중:  30% (56/185)오브젝트 쓰는 중:  31% (58/185)오브젝트 쓰는 중:  32% (60/185)오브젝트 쓰는 중:  33% (62/185)오브젝트 쓰는 중:  34% (63/185)오브젝트 쓰는 중:  35% (65/185)오브젝트 쓰는 중:  36% (67/185)오브젝트 쓰는 중:  37% (70/185)오브젝트 쓰는 중:  38% (71/185)오브젝트 쓰는 중:  39% (73/185)오브젝트 쓰는 중:  40% (74/185)오브젝트 쓰는 중:  41% (76/185)오브젝트 쓰는 중:  42% (78/185)오브젝트 쓰는 중:  43% (80/185)오브젝트 쓰는 중:  44% (82/185)오브젝트 쓰는 중:  45% (84/185)오브젝트 쓰는 중:  46% (86/185)오브젝트 쓰는 중:  47% (87/185)오브젝트 쓰는 중:  48% (89/185)오브젝트 쓰는 중:  49% (91/185)오브젝트 쓰는 중:  50% (93/185)오브젝트 쓰는 중:  51% (95/185)오브젝트 쓰는 중:  52% (97/185)오브젝트 쓰는 중:  53% (99/185)오브젝트 쓰는 중:  54% (100/185)오브젝트 쓰는 중:  55% (102/185)오브젝트 쓰는 중:  56% (104/185)오브젝트 쓰는 중:  57% (106/185)오브젝트 쓰는 중:  58% (108/185)오브젝트 쓰는 중:  59% (110/185)오브젝트 쓰는 중:  60% (111/185)오브젝트 쓰는 중:  61% (113/185)오브젝트 쓰는 중:  62% (115/185)오브젝트 쓰는 중:  63% (117/185)오브젝트 쓰는 중:  64% (119/185)오브젝트 쓰는 중:  65% (121/185)오브젝트 쓰는 중:  67% (125/185)오브젝트 쓰는 중:  68% (126/185)오브젝트 쓰는 중:  69% (128/185)오브젝트 쓰는 중:  70% (130/185)오브젝트 쓰는 중:  71% (133/185)오브젝트 쓰는 중:  72% (135/185)오브젝트 쓰는 중:  73% (136/185)오브젝트 쓰는 중:  74% (138/185)오브젝트 쓰는 중:  75% (139/185)오브젝트 쓰는 중:  76% (141/185)오브젝트 쓰는 중:  77% (144/185)오브젝트 쓰는 중:  78% (145/185)오브젝트 쓰는 중:  79% (147/185)오브젝트 쓰는 중:  80% (148/185)오브젝트 쓰는 중:  81% (151/185)오브젝트 쓰는 중:  82% (152/185)오브젝트 쓰는 중:  83% (154/185)오브젝트 쓰는 중:  84% (156/185)오브젝트 쓰는 중:  85% (158/185)오브젝트 쓰는 중:  86% (160/185)오브젝트 쓰는 중:  87% (161/185)오브젝트 쓰는 중:  88% (164/185)오브젝트 쓰는 중:  89% (165/185)오브젝트 쓰는 중:  90% (167/185)오브젝트 쓰는 중:  91% (169/185)오브젝트 쓰는 중:  92% (171/185)오브젝트 쓰는 중:  93% (173/185)오브젝트 쓰는 중:  94% (174/185)오브젝트 쓰는 중:  95% (176/185)오브젝트 쓰는 중:  96% (179/185)오브젝트 쓰는 중:  97% (180/185)오브젝트 쓰는 중:  98% (182/185)오브젝트 쓰는 중:  99% (184/185)오브젝트 쓰는 중: 100% (185/185)오브젝트 쓰는 중: 100% (185/185), 651.48 KiB | 59.23 MiB/s, 완료.
+Total 185 (delta 46), reused 144 (delta 29), pack-reused 0
+remote: Resolving deltas:   0% (0/46)[Kremote: Resolving deltas:   2% (1/46)[Kremote: Resolving deltas:   4% (2/46)[Kremote: Resolving deltas:   6% (3/46)[Kremote: Resolving deltas:   8% (4/46)[Kremote: Resolving deltas:  10% (5/46)[Kremote: Resolving deltas:  13% (6/46)[Kremote: Resolving deltas:  15% (7/46)[Kremote: Resolving deltas:  17% (8/46)[Kremote: Resolving deltas:  19% (9/46)[Kremote: Resolving deltas:  21% (10/46)[Kremote: Resolving deltas:  23% (11/46)[Kremote: Resolving deltas:  26% (12/46)[Kremote: Resolving deltas:  28% (13/46)[Kremote: Resolving deltas:  30% (14/46)[Kremote: Resolving deltas:  32% (15/46)[Kremote: Resolving deltas:  34% (16/46)[Kremote: Resolving deltas:  36% (17/46)[Kremote: Resolving deltas:  39% (18/46)[Kremote: Resolving deltas:  41% (19/46)[Kremote: Resolving deltas:  43% (20/46)[Kremote: Resolving deltas:  45% (21/46)[Kremote: Resolving deltas:  47% (22/46)[Kremote: Resolving deltas:  50% (23/46)[Kremote: Resolving deltas:  52% (24/46)[Kremote: Resolving deltas:  54% (25/46)[Kremote: Resolving deltas:  56% (26/46)[Kremote: Resolving deltas:  58% (27/46)[Kremote: Resolving deltas:  60% (28/46)[Kremote: Resolving deltas:  63% (29/46)[Kremote: Resolving deltas:  65% (30/46)[Kremote: Resolving deltas:  67% (31/46)[Kremote: Resolving deltas:  69% (32/46)[Kremote: Resolving deltas:  71% (33/46)[Kremote: Resolving deltas:  73% (34/46)[Kremote: Resolving deltas:  76% (35/46)[Kremote: Resolving deltas:  78% (36/46)[Kremote: Resolving deltas:  80% (37/46)[Kremote: Resolving deltas:  82% (38/46)[Kremote: Resolving deltas:  84% (39/46)[Kremote: Resolving deltas:  86% (40/46)[Kremote: Resolving deltas:  89% (41/46)[Kremote: Resolving deltas:  91% (42/46)[Kremote: Resolving deltas:  93% (43/46)[Kremote: Resolving deltas:  95% (44/46)[Kremote: Resolving deltas:  97% (45/46)[Kremote: Resolving deltas: 100% (46/46)[Kremote: Resolving deltas: 100% (46/46), completed with 10 local objects.[K
+To https://github.com/HD152513/2021_SearchEngine_Project.git
+   dba4166..7180a9d  main -> main
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir 2021_SearchEngine_Project % [K[?2004hgit push origin main[16Dcommit -m "views.py 수정 및 url 연결"[37Dadd .                                [32D[9Dls       cd ..python3 manage.py runserver[?2004l
+/usr/local/bin/python3: can't open file '/Users/jisu/Desktop/Desktop/지수의 대학 라이프 ver2/Project/2021_SearchEngine_Project/manage.py': [Errno 2] No such file or directory
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir 2021_SearchEngine_Project % [K[?2004hpython3 manage.py runserver[27D                           [27Dccd 
+[JREADME.md         crawler.py        env/              requirements.txt  searchEngine/     started           static/           uwsgi.service[A[0m[27m[24m[52Ccd[K[1CREADME.md[9Dcrawler.py[10Denv[1m/[0m      req[0muirements.txt[16DsearchEngine[1m/[0m   [0m [?2004l
+[J[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir searchEngine % [K[?2004hlls[?2004l
+db.sqlite3	manage.py	search		searchEngine	static
+[1m[7m%[27m[1m[0m                                                                                                                                                                        [0m[27m[24m[Jjisu@ijisuui-MacBookAir searchEngine % [K[?2004hccdc  lscd searchEngine[15Dpython3 manage.py runserver[?2004l
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+[31m
+You have 18 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.[0m
+[31mRun 'python manage.py migrate' to apply them.[0m
+April 14, 2021 - 18:02:07
+Django version 3.1.7, using settings 'searchEngine.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[14/Apr/2021 18:02:12] [m"GET / HTTP/1.1" 200 799[0m
+[14/Apr/2021 18:02:12] [36m"GET /static/common.js HTTP/1.1" 304 0[0m
+[14/Apr/2021 18:02:15] [m"GET /search/%EC%95%88%EB%85%95 HTTP/1.1" 200 14549[0m
+[14/Apr/2021 18:02:39] [m"GET /search/%EC%95%88%EB%85%95 HTTP/1.1" 200 14552[0m
+[14/Apr/2021 18:02:39] [36m"GET /static/common.js HTTP/1.1" 304 0[0m
+[14/Apr/2021 18:02:40] [m"GET /search/%EC%95%88%EB%85%95 HTTP/1.1" 200 14552[0m
+[14/Apr/2021 18:02:40] [m"GET /search/%EC%95%88%EB%85%95 HTTP/1.1" 200 14552[0m
+[14/Apr/2021 18:02:40] [m"GET /search/%EC%95%88%EB%85%95 HTTP/1.1" 200 14552[0m
+[14/Apr/2021 18:02:40] [m"GET /search/%EC%95%88%EB%85%95 HTTP/1.1" 200 14552[0m
