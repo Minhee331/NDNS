@@ -105,8 +105,8 @@ def lambda_handler(event, context):
                     title = soup.find("div", {"class": "box-meta"})
                 elif(soup.find("div", {"class": "area_title"})!= None):
                     title = soup.find("div", {"class": "area_title"})
-                elif(soup.find("div", {"class": "inner"})!= None):
-                    title = soup.find("div", {"class": "inner"})
+                elif(soup.find("div", {"class": "post-cover"})!= None):
+                    title = soup.find("div", {"class": "post-cover"})
                 elif(soup.find("div", {"class": "jb-content-title jb-content-title-article"})!= None):
                     title = soup.find("div", {"class": "jb-content-title jb-content-title-article"})
                 elif(soup.find("div", {"id": "head"})!= None):
