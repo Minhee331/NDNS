@@ -211,7 +211,15 @@
     </div>
 </body>
 <script src="{{STATIC_URL}}common.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" charset="UTF-8"></script>
 <script>
+    $(document).ready(function() {
+        $.ajax({ 
+            url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V1/search/{{searchVal}}', 
+            success:function(data){ 
+                console.log(data) } 
+        });
+    });
     let realBtn = document.getElementById("realBtn");
     let adBtn = document.getElementById("adBtn"); 
     let realRv = document.getElementById("realReview");
