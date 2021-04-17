@@ -10,6 +10,12 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
+.load{
+  font-size: 100px;
+  font-family: "Minguk-Bold";
+}
+
 .all{
   background: #eeeeee;
   position: relative;

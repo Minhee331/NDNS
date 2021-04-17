@@ -29,21 +29,7 @@
                 </div>
                 <!-- 진짜 후기 내용 -->
                 <div id="realReview">
-                    <div class="box">
-                        <img class="site_logo" src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">
-                        <div class="review">
-                            <div class="title">
-                                <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                                <br>
-                                <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                                </a>
-                            </div>
-                            <div class="summary">
-                                <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
-                            </div>
-                        </div>
-                        <div class="chart"><canvas id="canvas1" width=145 height=145></canvas></div>
-                    </div>
+                    <div class="load">내용을 불러오는 중입니다!<br>조금만 기다려주세요 :)</div>
                 </div>
                 <!-- 가짜 후기 내용 -->
                 <div id="adReview" style="display: none;">
@@ -78,6 +64,7 @@
             } 
         });
     });
+    
 
     function showData(data) {
         data = JSON.parse(data);
@@ -100,7 +87,7 @@
                 strReal += '<div class="summary">'
                 strReal += '<a>요약된 첫번째 내용이 담길 공간입니다.<br>요약된 두번째 내용이 담길 공간입니다.<br>요약된 세번째 내용이 담길 공간입니다.</a>'
                 strReal += '</div>'
-                strReal += '</div><div class="chart"><canvas id="canvas1" width=145 height=145></canvas></div></div>'
+                strReal += '</div><div class="chart"><canvas id="canvas' + data[i].id + '" width=145 height=145></canvas></div></div>'
             }else{
                 strAd += '<div class="box">';
                 strAd += '<img class="site_logo"';
@@ -115,14 +102,46 @@
                 strAd += '<div class="summary">'
                 strAd += '<a>요약된 첫번째 내용이 담길 공간입니다.<br>요약된 두번째 내용이 담길 공간입니다.<br>요약된 세번째 내용이 담길 공간입니다.</a>'
                 strAd += '</div>'
-                strAd += '</div><div class="chart"><canvas id="canvas1" width=145 height=145></canvas></div></div>'
+                strAd += '</div><div class="chart"><canvas id="canvas' + data[i].id + '" width=145 height=145></canvas></div></div>'
             }
         }
-        console.log(strReal)
-        console.log(strAd)
+
         document.getElementById("realReview").innerHTML = strReal;
         document.getElementById("adReview").innerHTML = strAd;
         
+        // var box=document.getElementsByClassName("box");
+
+
+        for(var i=0;i <data.length;i++){
+            let canvas=document.getElementById("canvas"+data[i].id);
+            let colors=['#30343B','#FFD368'];
+            let ctx=canvas.getContext("2d");
+            let values=[25,75]; //긍부정비율 넘겨줄때 넣으면 될듯
+            let labels=['Positive','Negative'];
+            Chart(72.5,72.5,45,35,values,colors,labels,ctx);
+            console.log(i)
+        }
+
+        function Chart(cx,cy,radius,arcwidth,values,colors,labels,ctx){
+            var tot=0;
+            var accum=0;
+            var PI=Math.PI;
+            var PI2=PI*2;
+            var offset=-PI/2;
+            ctx.lineWidth=arcwidth;
+            for(var i=0;i<values.length;i++){tot+=values[i];}
+            for(var i=0;i<values.length;i++){
+                ctx.beginPath();
+                ctx.arc(cx,cy,radius,
+                    offset+PI2*(accum/tot),
+                    offset+PI2*((accum+values[i])/tot)
+                );
+                ctx.strokeStyle=colors[i];
+                ctx.stroke();
+                accum+=values[i];
+            }
+        }
+
     }
 
     let realBtn = document.getElementById("realBtn");
@@ -151,36 +170,8 @@
         adRv.style.display = "";
     };
 
-    var id=1;
-    var box=document.getElementsByClassName("box");
-    for(var i=0;i <box.length;i++){
-        var canvas=document.getElementById("canvas"+id);
-        var ctx=canvas.getContext("2d");
-        var colors=['#30343B','#FFD368'];
-        var values=[25,75]; //긍부정비율 넘겨줄때 넣으면 될듯
-        var labels=['Positive','Negative'];
-        Chart(72.5,72.5,45,35,values,colors,labels);
-        id++;
-    }
     
-    function Chart(cx,cy,radius,arcwidth,values,colors,labels){
-        var tot=0;
-        var accum=0;
-        var PI=Math.PI;
-        var PI2=PI*2;
-        var offset=-PI/2;
-        ctx.lineWidth=arcwidth;
-        for(var i=0;i<values.length;i++){tot+=values[i];}
-        for(var i=0;i<values.length;i++){
-            ctx.beginPath();
-            ctx.arc(cx,cy,radius,
-                offset+PI2*(accum/tot),
-                offset+PI2*((accum+values[i])/tot)
-            );
-            ctx.strokeStyle=colors[i];
-            ctx.stroke();
-            accum+=values[i];
-        }
-    }
+    
+    
 </script>
 </html>
