@@ -12,7 +12,7 @@ body {
 }
 
 .load{
-  font-size: 100px;
+  font-size: 70px;
   font-family: "Minguk-Bold";
 }
 
@@ -49,6 +49,7 @@ body {
   border-color: rgba(112, 112, 112, 0.75);
   box-sizing: border-box;
   /* margin: 65px 0 0 2.5vw; */
+  font-size: 17px;
   margin: 0 0 0 2.5vw;
   font-family: "Minguk-Regular";
   color: #707070;
