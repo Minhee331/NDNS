@@ -10,6 +10,7 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
 .all{
   background: #eeeeee;
   position: relative;
@@ -43,6 +44,7 @@ body {
   border-color: rgba(112, 112, 112, 0.75);
   box-sizing: border-box;
   /* margin: 65px 0 0 2.5vw; */
+  font-size: 17px;
   margin: 0 0 0 2.5vw;
   font-family: "Minguk-Regular";
   color: #707070;

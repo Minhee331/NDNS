@@ -6,14 +6,24 @@
   src: url("../fonts/YoonMingukR.ttf");
   font-family: "Minguk-Regular";
 }
+
+.linkUrl:link {
+  color:black;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+}
+/* 
+a:visited{
+  color: 
+} */
+
 body {
   margin: 0px;
   padding: 0px;
-}
-
-.load{
-  font-size: 70px;
-  font-family: "Minguk-Bold";
 }
 
 .all{
@@ -113,6 +123,8 @@ body {
 .title {
   font-size: 15px;
 }
+
+
 .summary {
   font-size: 15px;
 }
