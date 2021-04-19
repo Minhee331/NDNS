@@ -35,20 +35,8 @@
                 </div>
                 <!-- 가짜 후기 내용 -->
                 <div id="adReview" style="display: none;">
-                    <div class="box">
-                        <img class="site_logo" src="{{STATIC_URL}}img/navericon.png" width="40" height="40" alt="Google logo">
-                        <div class="review">
-                            <div class="title">
-                                <a href="https://www.google.com" target="_blank" id="review_title">라네즈 크림 어쩌고</a>
-                                <br>
-                                <a href="https://www.google.com" target="_blank">https://www.google.com</a>
-                                </a>
-                            </div>
-                            <div class="summary">
-                                <a>콧물 스킨 ㄴㄴ<br> 생각보다 좋아요,<br> 진성후기임aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a>
-                            </div>
-                        </div>
-                        <canvas id="canvas" width=150 height=150></canvas>
+                    <div width= '100%' height= '75vh' style="text-align: center; margin-top: 32vh;">
+                        <img src="{{STATIC_URL}}img/loading.gif" alt="loading" width="100px">
                     </div>
                 </div>
             </div>
@@ -70,10 +58,23 @@
 
     function showData(data) {
         data = JSON.parse(data);
-        var strReal = ''
-        var strAd = ''
-        for (var i = 0; i < data.length; i++){
-            if (data[i].isAd){
+        var strReal = '';
+        var strAd = '';
+        var startGoogle = 0;
+        var endNaver = 0
+        for (let i = data.length - 1; i >= 0; i--){
+            if (data[i].source == 'N'){
+                startGoogle = i + 1;
+                break;
+            }
+        }
+        if (startGoogle == 0){
+            endNaver = data.length;
+        }else{
+            endNaver = startGoogle;
+        }
+        for (var i = 0; i < startGoogle; i++){
+            if (!data[i].isAd){
                 strReal += '<div class="box">';
                 strReal += '<img class="site_logo"';
                 if (data[i].source == 'G'){
@@ -98,11 +99,44 @@
                 }
                 strAd += '<div class="review"><div class="title">';
                 strAd += '<a href="' + data[i].linkUrl + '" target="_blank" id="review_title">'+ data[i].title + '</a><br>';
-                strAd += '<a href="' + data[i].linkUrl + 'target="_blank">'+ data[i].linkUrl + '</a></a></div>';
+                strAd += '<a href="' + data[i].linkUrl + 'target="_blank" class="linkUrl">'+ data[i].linkUrl + '</a></a></div>';
                 strAd += '<div class="summary">'
                 strAd += '<span>요약된 첫번째 내용이 담길 공간입니다.<br>요약된 두번째 내용이 담길 공간입니다.<br>요약된 세번째 내용이 담길 공간입니다.</span>'
                 strAd += '</div>'
                 strAd += '</div><div class="chart"><canvas id="canvas' + data[i].id + '" width=145 height=145></canvas></div></div>'
+            }
+            if (data[i+startGoogle]){
+                if (!data[i+startGoogle].isAd){
+                    strReal += '<div class="box">';
+                    strReal += '<img class="site_logo"';
+                    if (data[i+startGoogle].source == 'G'){
+                        strReal += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';
+                    } else{
+                        strReal += 'src="{{STATIC_URL}}img/navericon.png" width="40" height="40" alt="Naver logo">';
+                    }
+                    strReal += '<div class="review"><div class="title">';
+                    strReal += '<a href="' + data[i+startGoogle].linkUrl + '" target="_blank" id="review_title">'+ data[i+startGoogle].title + '</a><br>';
+                    strReal += '<a href="' + data[i+startGoogle].linkUrl + '" target="_blank" class="linkUrl">' + data[i+startGoogle].linkUrl+ '</a></a></div>';
+                    strReal += '<div class="summary">'
+                    strReal += '<span>요약된 첫번째 내용이 담길 공간입니다.<br>요약된 두번째 내용이 담길 공간입니다.<br>요약된 세번째 내용이 담길 공간입니다.</span>'
+                    strReal += '</div>'
+                    strReal += '</div><div class="chart"><canvas id="canvas' + data[i+startGoogle].id + '" width=145 height=145></canvas></div></div>'
+                }else{
+                    strAd += '<div class="box">';
+                    strAd += '<img class="site_logo"';
+                    if (data[i+startGoogle].source == 'G'){
+                        strAd += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';
+                    } else{
+                        strAd += 'src="{{STATIC_URL}}img/navericon.png" width="40" height="40" alt="Naver logo">';
+                    }
+                    strAd += '<div class="review"><div class="title">';
+                    strAd += '<a href="' + data[i+startGoogle].linkUrl + '" target="_blank" id="review_title">'+ data[i+startGoogle].title + '</a><br>';
+                    strAd += '<a href="' + data[i+startGoogle].linkUrl + 'target="_blank" class="linkUrl">'+ data[i+startGoogle].linkUrl + '</a></a></div>';
+                    strAd += '<div class="summary">'
+                    strAd += '<span>요약된 첫번째 내용이 담길 공간입니다.<br>요약된 두번째 내용이 담길 공간입니다.<br>요약된 세번째 내용이 담길 공간입니다.</span>'
+                    strAd += '</div>'
+                    strAd += '</div><div class="chart"><canvas id="canvas' + data[i+startGoogle].id + '" width=145 height=145></canvas></div></div>'
+                }
             }
         }
 
