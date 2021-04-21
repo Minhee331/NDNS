@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -123,7 +123,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+# STATIC_ROOT = os.path.join(BASE_DIR, '../static')
+# STATIC_ROOT = os.path.join('/srv/2021_SearchEngine_Project/static')
+# STATIC_ROOT = os.path.join(BASE_DIR, './')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_URL = '/static/'
 
 
@@ -146,8 +149,8 @@ AWS_S3_OBJECT_PARAMETERS = {
 # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'search/static'),
+    os.path.join(BASE_DIR, 'searchEngine/static'),
+    os.path.join(BASE_DIR, 'searchEngine/search/static'),
 ]
 
 # 미디어 파일을 위한 스토리지 설정

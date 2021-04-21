@@ -48,11 +48,20 @@
 <script>
     $(document).ready(function() {
         $.ajax({ 
-            url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V1/search/{{searchVal}}', 
+            url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V3/search/{{searchVal}}', 
             success:function(data){ 
                 showData(data); 
+                $.ajax({ 
+                    type: "POST",
+                    url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V3/comprehend', 
+                    'data': data,
+                    success:function(data){ 
+                        console.log(data);
+                    } 
+                });
             } 
         });
+        
     });
     
 
