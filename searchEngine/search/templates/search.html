@@ -49,14 +49,20 @@
     $(document).ready(function() {
         $.ajax({ 
             url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V3/search/{{searchVal}}', 
-            success:function(data){ 
-                showData(data); 
+            success:function(data1){  
                 $.ajax({ 
                     type: "POST",
                     url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V3/comprehend', 
-                    'data': data,
-                    success:function(data){ 
-                        console.log(data);
+                    'data': data1,
+                    success:function(data2){ 
+                        data1 = JSON.parse(data1);
+                        data2 = data2['body']
+                        for(let i = 0; i < data1.length; i++){
+                            data1[i].positive = data2[i]['Positive']
+                            data1[i].negative = data2[i]['Negative']
+                        }
+                        showData(data1);
+                        
                     } 
                 });
             } 
@@ -66,7 +72,6 @@
     
 
     function showData(data) {
-        data = JSON.parse(data);
         var strReal = '';
         var strAd = '';
         var startGoogle = 0;
@@ -159,7 +164,7 @@
             let canvas=document.getElementById("canvas"+data[i].id);
             let colors=['#30343B','#FFD368'];
             let ctx=canvas.getContext("2d");
-            let values=[25,75]; //긍부정비율 넘겨줄때 넣으면 될듯
+            let values=[data[i].negative,data[i].positive]; //긍부정비율 넘겨줄때 넣으면 될듯
             let labels=['Positive','Negative'];
             Chart(72.5,72.5,45,35,values,colors,labels,ctx);
         }
