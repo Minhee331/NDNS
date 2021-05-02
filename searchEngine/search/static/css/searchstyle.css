@@ -91,6 +91,61 @@ body {
   background: #fff;
   margin : 0 2.3vw 0 2.3vw;
 }
+@media all and (min-width:1440px){
+  .searchResult {
+    position: relative;
+    top: 15px;
+    min-height: 80vh;
+    height: 100%;
+    background: #fff;
+    margin : 0 2.3vw 0 2.3vw;
+    width: 75vw;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+}
+@media all and (max-width:1439px){
+  .adBox_img{
+    display: none !important;
+  }
+  
+  .adBox_content{
+    display: none !important;
+  }
+}
+.adBox_img{
+  position: fixed;
+  background: #fff;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 175px;
+}
+.adBox1_img{
+  width: 250px;
+  height: 180px;
+  top: 160px;
+}
+.adBox2_img{
+  width: 250px;
+  height: 180px;
+  top: 420px;
+}
+
+.adBox_content{
+  padding-left: 10px;
+  position: fixed;
+  width: 250px;
+  height: 50px;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.adBox1_content{
+  top: 350px;
+}
+.adBox2_content{
+  top: 610px;
+}
 .box {
   /* box 클래스를 플렉스박스로 전환하는 코드 */
   display: flex;
