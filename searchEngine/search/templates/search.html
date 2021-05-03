@@ -27,19 +27,23 @@
                     <div id=negative></div>
                     <div>부정</div>
                 </div>
-                <!-- 진짜 후기 내용 -->
-                <div id="realReview">
-                    <div width= '100%' height= '75vh' style="text-align: center; margin-top: 32vh;">
-                        <img src="{{STATIC_URL}}img/loading.gif" alt="loading" width="100px">
-                    </div>
-                </div> 
-                <!-- 가짜 후기 내용 -->
-                <div id="adReview" style="display: none;">
-                    <div width= '100%' height= '75vh' style="text-align: center; margin-top: 32vh;">
-                        <img src="{{STATIC_URL}}img/loading.gif" alt="loading" width="100px">
+                <div class="blank"></div>
+                <div class="links">
+                    <!-- 진짜 후기 내용 -->
+                    <div id="realReview">
+                        <div width= '100%' height= '75vh' style="text-align: center; margin-top: 32vh;">
+                            <img src="{{STATIC_URL}}img/loading.gif" alt="loading" width="100px">
+                        </div>
+                    </div> 
+                    <!-- 가짜 후기 내용 -->
+                    <div id="adReview" style="display: none;">
+                        <div width= '100%' height= '75vh' style="text-align: center; margin-top: 32vh;">
+                            <img src="{{STATIC_URL}}img/loading.gif" alt="loading" width="100px">
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="page"></div>
             <div style="display: inline-block;">
                 <div class="adBox_img adBox1_img">상품 1</div>
                 <div class="adBox_content adBox1_content"><span>상품명 예시 1</span><br><span style="font-size: 12px;">http://www.11st.co.kr/상품구매링크</span></div>
@@ -52,6 +56,8 @@
 <script src="{{STATIC_URL}}common.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" charset="UTF-8"></script>
 <script>
+
+    
     $(document).ready(function() {
         $.ajax({ 
             url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V3/search/{{searchVal}}', 
@@ -68,14 +74,108 @@
                             data1[i].negative = data2[i]['Negative']
                         }
                         showData(data1);
-                        
+                        pagination(1, 0);
                     } 
                 });
             } 
-        });
-        
-    });
+        });  
+    })
+
+    // 페이지네이션
+
+    var contentNum = 10;    // 한 페이지 당 contents 개수
+    var pageNumm = 10;      // 한 번에 띄울 페이지 개수, 10개 이상이면 ▶ 표시 생기고 생략
+    var str_real = '';     // realReview div.page innerHTML
+    var str_ad = '';       // adReview div.page innerHTML
     
+    function pagination(first, isAd){
+        if (first){
+            
+            var pageNum_real = parseInt($('#realReview .box').length / contentNum);
+            var pageNum_ad = parseInt($('#adReview .box').length / contentNum);
+            
+            // realReview pagination
+            if (pageNum_real > pageNumm){
+                str_real = '<div page=1>'
+            }
+            if (pageNum_real == 0){
+                pageNum_real = 1;
+            }
+            let pageNum = 1;
+            for (let i = 1; i < pageNum_real; i++){
+                str_real += '<a href="javascript:page('+ i + ', 0)">' + i + '&nbsp&nbsp&nbsp' + '</a>';
+                if (i % pageNumm == 0){
+                    str_real = str_real + '<a href="javascript:nextPages(1, '+pageNum+')">▶&nbsp&nbsp&nbsp</a></div>';
+                    pageNum++;
+                    str_real = str_real + '<div page='+pageNum + '><a href="javascript:nextPages(0, '+pageNum+')">◀︎&nbsp&nbsp&nbsp</a>';
+                }
+            }
+            str_real += '<a href="javascript:page('+ pageNum_real + ', 0)">' + pageNum_real + '</a>';
+            $('.page')[0].innerHTML = str_real;
+            $('div[page]').css("display","none");
+            $('div[page = 1]').css("display","");
+            page(1, 0);
+
+            // realReview pagination
+            if (pageNum_ad > pageNumm){
+                str_ad = '<div page=1>'
+            }
+            if (pageNum_ad == 0){
+                pageNum_ad = 1;
+            }
+            pageNum = 1;
+            for (let i = 1; i < pageNum_ad; i++){
+                str_ad += '<a href="javascript:page('+ i + ', 1)">' + i + '&nbsp&nbsp&nbsp' + '</a>';
+                if (i % pageNumm == 0){
+                    str_ad = str_ad + '<a href="javascript:nextPages(1, '+pageNum+')">▶&nbsp&nbsp&nbsp</a></div>';
+                    pageNum++;
+                    str_ad = str_ad + '<div page='+pageNum + '><a href="javascript:nextPages(0, '+pageNum+')">◀︎&nbsp&nbsp&nbsp</a>';
+                }
+            }
+            str_ad += '<a href="javascript:page('+ pageNum_ad + ', 1)">' + pageNum_ad + '</a>';
+        }
+        else{
+            if(!isAd){
+                $('.page')[0].innerHTML = str_real;
+                $('div[page]').css("display","none");
+                $('div[page = 1]').css("display","");
+                page(1, 0);
+            }
+            else{
+                $('.page')[0].innerHTML = str_ad;
+                $('div[page]').css("display","none");
+                $('div[page = 1]').css("display","");
+                page(1, 1);
+            }
+        }
+    }
+    
+    function page(pageNum, isAd) {
+        if (!isAd){
+            $("#realReview .box").css("display","none");
+            let startNum = contentNum * (pageNum - 1) + 1;
+            let endNum = contentNum * pageNum;
+            for(let i = startNum; i <= endNum; i++){
+                $("#realReview .box[idx="+ i + "]").css("display","");
+            }
+        }else{
+            $("#adReview .box").css("display","none");
+            let startNum = contentNum * (pageNum - 1) + 1;
+            let endNum = contentNum * pageNum;
+            for(let i = startNum; i <= endNum; i++){
+                $("#adReview .box[idx="+ i + "]").css("display","");
+            }
+        }
+    }
+
+    function nextPages(isNext, pageNum){
+        $('div[page]').css("display","none");
+        if (isNext == 0){
+            $('div[page = '+ (pageNum - 1) + ']').css("display","");    
+        }else{
+            $('div[page = '+ (pageNum + 1) + ']').css("display","");
+        }
+    }
 
     function showData(data) {
         var strReal = '';
@@ -93,9 +193,12 @@
         }else{
             endNaver = startGoogle;
         }
+        let realIdx = 0;
+        let adIdx = 0;
         for (var i = 0; i < startGoogle; i++){
             if (!data[i].isAd){
-                strReal += '<div class="box">';
+                realIdx++;
+                strReal += '<div class="box" idx='+ realIdx +'>';
                 strReal += '<img class="site_logo"';
                 if (data[i].source == 'G'){
                     strReal += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';
@@ -110,7 +213,8 @@
                 strReal += '</div>'
                 strReal += '</div><div class="chart"><canvas id="canvas' + data[i].id + '" width=145 height=145></canvas></div></div>'
             }else{
-                strAd += '<div class="box">';
+                adIdx++;
+                strAd += '<div class="box" idx='+adIdx+'>';
                 strAd += '<img class="site_logo"';
                 if (data[i].source == 'G'){
                     strAd += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';
@@ -127,7 +231,8 @@
             }
             if (data[i+startGoogle]){
                 if (!data[i+startGoogle].isAd){
-                    strReal += '<div class="box">';
+                    realIdx++;
+                    strReal += '<div class="box" idx='+ realIdx +'>';
                     strReal += '<img class="site_logo"';
                     if (data[i+startGoogle].source == 'G'){
                         strReal += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';
@@ -142,7 +247,8 @@
                     strReal += '</div>'
                     strReal += '</div><div class="chart"><canvas id="canvas' + data[i+startGoogle].id + '" width=145 height=145></canvas></div></div>'
                 }else{
-                    strAd += '<div class="box">';
+                    adIdx++;
+                    strAd += '<div class="box" idx='+adIdx+'>';
                     strAd += '<img class="site_logo"';
                     if (data[i+startGoogle].source == 'G'){
                         strAd += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';
@@ -211,6 +317,7 @@
         adBtn.style.border = "1px solid";
         realRv.style.display = "";
         adRv.style.display = "none";
+        pagination(0, 0);
     };
     function adBtnClick(){
         realBtn.style.background = "#fff";
@@ -221,6 +328,7 @@
         adBtn.style.border = 0;
         realRv.style.display = "none";
         adRv.style.display = "";
+        pagination(0, 1);
     };
 
     
