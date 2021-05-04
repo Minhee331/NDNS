@@ -29,10 +29,10 @@ body {
 .all{
   background: #eeeeee;
   position: relative;
-  top: 60px;
-  min-height: 80vh;
-  height: 100%;
-  padding-bottom: 55px;
+  top: 9.4vh;
+  height: 86.6vh;
+  min-height: 550px;
+  padding-bottom: 4vh;
 }
 .search-bar {
   display: flex;
@@ -80,13 +80,13 @@ body {
     margin-top: 65px;
     margin-left: 65px; */
   /* background: #eeeeee; */
-  margin-top: 30px;
   padding-top: 55px;
 }
 .searchResult {
   position: relative;
   top: 15px;
   height: 73vh;
+  min-height: 450px;
   background: #fff;
   margin : 0 2.3vw 0 2.3vw;
 }
@@ -113,7 +113,8 @@ body {
   }
 }
 .adBox_img{
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   background: #fff;
   display: inline-block;
   box-sizing: border-box;
@@ -123,27 +124,30 @@ body {
 .adBox1_img{
   width: 250px;
   height: 180px;
-  top: 160px;
+  top: 70px;
 }
 .adBox2_img{
   width: 250px;
   height: 180px;
-  top: 420px;
+  top: 330px;
 }
 
 .adBox_content{
   padding-left: 10px;
-  position: fixed;
+  /* position: fixed; */
+  position: absolute;
   width: 250px;
   height: 50px;
   display: inline-block;
   box-sizing: border-box;
 }
 .adBox1_content{
-  top: 350px;
+  /* top: 350px; */
+  top: 260px
 }
 .adBox2_content{
-  top: 610px;
+  /* top: 610px; */
+  top: 520px;
 }
 .box {
   /* box 클래스를 플렉스박스로 전환하는 코드 */
@@ -230,25 +234,24 @@ body {
   min-width: 170px;
 }
 
-.blank{
-  height: 0.5vh;
-}
-
 .links{
   padding: 30px;
   height: 67vh;
+  min-height: 390px;
   overflow-y: auto;
 }
 
 #realReview {
   /* background: #eeeeee; */
   height: 100%;
+  min-height: 390px;
   padding: 0 0 0 40px;
   overflow: scroll;
 }
 #adReview {
   /* background: #eeeeee; */
   height: 100%;
+  min-height: 390px;
   padding: 0 0 0 40px;
   overflow: scroll;
 }
@@ -291,8 +294,8 @@ body {
 .page{
   font-family: "Minguk-Regular";
   position: absolute;
-  left: 50%;
-  bottom : 10px;
+  left: 39.8vw;
+  bottom : 2vh;
   transform: translate(-50%, -50%);
 }
 .page a{
@@ -303,4 +306,10 @@ body {
 }
 .page a:hover{
   color: blue;
+}
+
+@media (max-width: 1439px){
+  .page{
+    left: 50%;
+  }
 }
