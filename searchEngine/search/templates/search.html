@@ -80,7 +80,7 @@
                                 console.log("comprehend complete")
                                 data2 = JSON.parse(data2);
                                 data3 = data3['body']
-                                for(let i = 0; i < data1.length; i++){
+                                for(let i = 0; i < data3.length; i++){
                                     data2[i].positive = data3[i]['Positive']
                                     data2[i].negative = data3[i]['Negative']
                                 }
