@@ -10,3 +10,4 @@ def search(request, searchVal):
     # searchVal : 검색어
     
     return render(request, "search.html", {'STATIC_URL': STATIC_URL, 'searchVal':searchVal})
+
