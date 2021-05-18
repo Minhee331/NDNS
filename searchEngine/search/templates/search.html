@@ -71,6 +71,16 @@
                     success:function(data2){ 
                         console.log(data2);
                         console.log("vision complete");
+                        $.ajax({ 
+                            type: "POST",
+                            url:'/runtr/', 
+                            data: data2,
+                            dataType: 'json',
+                            success:function(data3){ 
+                                console.log(data3);
+                                console.log("tr complete");
+                            } 
+                        });
                     } 
                 });
             } 
