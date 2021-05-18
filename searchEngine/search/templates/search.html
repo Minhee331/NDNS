@@ -73,12 +73,30 @@
                         console.log("vision complete");
                         $.ajax({ 
                             type: "POST",
-                            url:'/runtr/', 
-                            data: data2,
-                            dataType: 'json',
-                            success:function(data3){ 
-                                console.log(data3);
-                                console.log("tr complete");
+                            url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V4/comprehend', 
+                            'data': data2,
+                            success:function(data3){
+                                save_data = data2
+                                console.log(data3)
+                                console.log("comprehend complete")
+                                data2 = JSON.parse(data2);
+                                data3 = data3['body']
+                                for(let i = 0; i < data3.length; i++){
+                                    data2[i].positive = data3[i]['Positive']
+                                    data2[i].negative = data3[i]['Negative']
+                                }
+                                showData(data2);
+                                pagination(1, 0);
+                                // $.ajax({ 
+                                //     type: "POST",
+                                //     url: "/runtr/",
+                                //     data: save_data,
+                                //     dataType: 'json',
+                                //     success:function(data4){ 
+                                //         console.log(data4)
+                                //         console.log("tr complete")
+                                //     }
+                                // });
                             } 
                         });
                     } 
