@@ -56,11 +56,13 @@
 <script src="{{STATIC_URL}}common.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous" charset="UTF-8"></script>
 <script>
-
     
     $(document).ready(function() {
         $.ajax({ 
             url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V4/search/{{searchVal}}', 
+            error: function(request, status, error){
+                console.log(request.responseText);
+            },
             success:function(data1){
                 console.log(data1);
                 console.log("crawling complete");
@@ -68,6 +70,9 @@
                     type: "POST",
                     url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V4/vision', 
                     'data': data1,
+                    error: function(request, status, error){
+                        console.log(request.responseText);
+                    },
                     success:function(data2){ 
                         console.log(data2);
                         console.log("vision complete");
@@ -92,6 +97,9 @@
                                     url: "/runtr/",
                                     data: data2, //save_data,
                                     dataType: 'json',
+                                    error: function(request, status, error){
+                                        console.log(request.responseText);
+                                    },
                                     success:function(data4){ 
                                         console.log(data4)
                                         console.log("tr complete")
@@ -101,9 +109,11 @@
                         // });
                     } 
                 });
+                console.log("complete")
             } 
         });  
-    })
+    });
+
 
     // 페이지네이션
 
@@ -222,7 +232,7 @@
         for (var i = 0; i < startGoogle; i++){
             if (!data[i].isAd){
                 realIdx++;
-                strReal += '<div class="box" idx='+ realIdx +'>';
+                strReal += '<div class="box" id='+ data[i].id +' idx='+ realIdx +'>';
                 strReal += '<img class="site_logo"';
                 if (data[i].source == 'G'){
                     strReal += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';
@@ -238,7 +248,7 @@
                 strReal += '</div><div class="chart"><canvas id="canvas' + data[i].id + '" width=145 height=145></canvas></div></div>'
             }else{
                 adIdx++;
-                strAd += '<div class="box" idx='+adIdx+'>';
+                strAd += '<div class="box" id='+ data[i].id +' idx='+adIdx+'>';
                 strAd += '<img class="site_logo"';
                 if (data[i].source == 'G'){
                     strAd += 'src="{{STATIC_URL}}img/googleicon.png" width="40" height="40" alt="Google logo">';

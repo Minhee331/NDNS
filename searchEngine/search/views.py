@@ -6,9 +6,9 @@ import os, io
 import networkx
 import re
 import json
+from konlpy.tag import Komoran
 import chardet
 from multiprocessing import Pipe, Process
-from konlpy.tag import Komoran
 import multiprocessing
 
 # Create your views here.
@@ -64,46 +64,46 @@ class RawSentenceReader:
             if not s: continue
             yield s
 
-class RawTagger:
-    def __init__(self, textIter, tagger=None):
-        if tagger:
-            self.tagger = tagger
-        else:
-            from konlpy.tag import Komoran
-            self.tagger = Komoran()
-        if type(textIter) == str:
-            self.textIter = textIter.split('\n')
-        else:
-            self.textIter = textIter
-        self.rgxSplitter = re.compile('([.!?:](?:["\']|(?![0-9])))')
+# class RawTagger:
+#     def __init__(self, textIter, tagger=None):
+#         if tagger:
+#             self.tagger = tagger
+#         else:
+#             from konlpy.tag import Komoran
+#             self.tagger = Komoran()
+#         if type(textIter) == str:
+#             self.textIter = textIter.split('\n')
+#         else:
+#             self.textIter = textIter
+#         self.rgxSplitter = re.compile('([.!?:](?:["\']|(?![0-9])))')
 
-    def __iter__(self):
-        for line in self.textIter:
-            ch = self.rgxSplitter.split(line)
-            if len(ch) == 1:
-                ch.append('.')
-            for s in map(lambda a, b: a + b, ch[0::2], ch[1::2]):
-                print(s)
-                if not s: continue
-                yield self.tagger.pos(s)
+#     def __iter__(self):
+#         for line in self.textIter:
+#             ch = self.rgxSplitter.split(line)
+#             if len(ch) == 1:
+#                 ch.append('.')
+#             for s in map(lambda a, b: a + b, ch[0::2], ch[1::2]):
+#                 print(s)
+#                 if not s: continue
+#                 yield self.tagger.pos(s)
 
 
-class RawTaggerReader:
-    def __init__(self, filepath, tagger=None):
-        if tagger:
-            self.tagger = tagger
-        else:
-            from konlpy.tag import Komoran
-            self.tagger = Komoran()
-        self.filepath = filepath
-        self.rgxSplitter = re.compile('([.!?:](?:["\']|(?![0-9])))')
+# class RawTaggerReader:
+#     def __init__(self, filepath, tagger=None):
+#         if tagger:
+#             self.tagger = tagger
+#         else:
+#             from konlpy.tag import Komoran
+#             self.tagger = Komoran()
+#         self.filepath = filepath
+#         self.rgxSplitter = re.compile('([.!?:](?:["\']|(?![0-9])))')
 
-    def __iter__(self):
-        for line in open(self.filepath, encoding='utf-8'):
-            ch = self.rgxSplitter.split(line)
-            for s in map(lambda a, b: a + b, ch[::2], ch[1::2]):
-                if not s: continue
-                yield self.tagger.pos(s)
+#     def __iter__(self):
+#         for line in open(self.filepath, encoding='utf-8'):
+#             ch = self.rgxSplitter.split(line)
+#             for s in map(lambda a, b: a + b, ch[::2], ch[1::2]):
+#                 if not s: continue
+#                 yield self.tagger.pos(s)
 
 
 class TextRank:
@@ -237,9 +237,11 @@ class TextRank:
         return '\n'.join(map(lambda k: self.dictCount[k], sorted(ks)))
 @csrf_exempt
 def runtr(request):
+    
     data = json.loads(request.body)
     tagger = Komoran()
     result = []
+    return JsonResponse("a", safe=False)
     for i in data:
         text = i['body']
         tr = TextRank()
