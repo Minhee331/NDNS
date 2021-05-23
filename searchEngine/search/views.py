@@ -241,7 +241,6 @@ def runtr(request):
     data = json.loads(request.body)
     tagger = Komoran()
     result = []
-    return JsonResponse("a", safe=False)
     for i in data:
         text = i['body']
         tr = TextRank()
