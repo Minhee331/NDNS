@@ -235,6 +235,7 @@ class TextRank:
         #ks = sorted(r, key=r.get, reverse=False)[:3]
         #ks = sorted(r, key=r.get, reverse=True)[:3]
         return '\n'.join(map(lambda k: self.dictCount[k], sorted(ks)))
+        
 @csrf_exempt
 def runtr(request):
     
@@ -251,6 +252,6 @@ def runtr(request):
         # for k in sorted(ranks, key=ranks.get, reverse=True)[:100]:
         #     print("\t".join([str(k), str(ranks[k]), str(tr.dictCount[k])]))
         # print(tr.summarize(0.1))
-        result.append({i['id']: tr.summarize(0.1)})
+        result.append({'id': i['id'], 'body': tr.summarize(0.1)})
     return JsonResponse(result, safe=False)
 
