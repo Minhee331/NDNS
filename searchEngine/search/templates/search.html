@@ -16,6 +16,16 @@
             <button id="search" class="search-icon" type="submit"><img src="{{STATIC_URL}}img/search_icon.png" alt=""></button>
         </div>    
         <div class="container">
+            <div class="progressbar-back">
+                <div class="progress-content">
+                    <p class="progress-cmt">열심히 자료를 모으는 중이에요!</p>
+                    <p class="progress-small-cmt">글로 광고판별 중...</p>
+                    <div class="progressbar">
+                        <div class="progress"></div>
+                        <div class="none-progress"></div>
+                    </div>
+                </div>
+            </div>
             <div class="searchResult">
                 <div class="tab">
                     <button id="realBtn" onclick="realBtnClick();">네돈네산 리뷰</button>
@@ -31,13 +41,11 @@
                     <!-- 진짜 후기 내용 -->
                     <div id="realReview">
                         <div width= '100%' height= '75vh' style="text-align: center; margin-top: 32vh;">
-                            <img src="{{STATIC_URL}}img/loading.gif" alt="loading" width="100px">
                         </div>
                     </div> 
                     <!-- 가짜 후기 내용 -->
                     <div id="adReview" style="display: none;">
                         <div width= '100%' height= '75vh' style="text-align: center; margin-top: 32vh;">
-                            <img src="{{STATIC_URL}}img/loading.gif" alt="loading" width="100px">
                         </div>
                     </div>
                 </div>
@@ -84,11 +92,6 @@
         if (level == 1 || level == 2){
             data = JSON.parse(data);
             var strReal = '';
-
-            if (level == 1) 
-                strReal = '크롤링 완료'
-            else if (level == 2)
-                strReal = '비전 완료'
             var strAd = '';
             var startGoogle = 0;
             var endNaver = 0
@@ -177,12 +180,10 @@
             }
             document.getElementById("realReview").innerHTML = strReal;
             document.getElementById("adReview").innerHTML = strAd;
-            pagination(1, 0);
+            
         }
 
         else if (level == 3){
-            let strReal = document.getElementById("realReview").innerHTML.replace('비전 완료', '텍스트랭크 & 컴프리헨드 완료');
-            document.getElementById("realReview").innerHTML = strReal;
             let dataTr = data[0];
             let dataCompre = data[1].body;
             for(let i=0;i <dataCompre.length;i++){
@@ -198,14 +199,15 @@
                 let dataTrValue = dataTr[i].body.replace(/\n/gi, "...</span><span>");
                 summarydiv.innerHTML = '<span>' + dataTrValue + '</span>';
             }
+            pagination(1, 0);
         }
-
-        
-
     }
 
     
     $(document).ready(function() {
+        document.getElementsByClassName("links")[0].style.pointerEvents = "none";
+        // <property> <duration> <timing-function> <delay>
+        document.getElementsByClassName("progress")[0].style.width = "38%";
         $.ajax({ 
             url:'https://sfrketwhk3.execute-api.ap-northeast-2.amazonaws.com/V4/search/{{searchVal}}', 
             error: function(request, status, error){
@@ -214,6 +216,8 @@
             success:function(data1){
                 console.log(data1);
                 console.log("crawling complete");
+                document.getElementsByClassName("progress-small-cmt")[0].innerHTML = "이미지로 광고판별 중...";
+                document.getElementsByClassName("progress")[0].style.width = "70%"
                 showData(1, data1);
                 $.ajax({ 
                     type: "POST",
@@ -225,6 +229,8 @@
                     success:function(data2){ 
                         console.log(data2);
                         var save_data = data2
+                        document.getElementsByClassName("progress-small-cmt")[0].innerHTML = "긍부정 분석 및 요약 중..."
+                        document.getElementsByClassName("progress")[0].style.width = "100%";
                         console.log("vision complete");
                         showData(2, data1);
                         var promise1 = new Promise(function(resolve, reject) {
@@ -252,7 +258,10 @@
                         });
                         Promise.all([promise1, promise2]).then(values =>{
                             console.log(values)
+                            document.getElementsByClassName("progress-small-cmt")[0].innerHTML = "완료!";
                             showData(3, values)
+                            document.getElementsByClassName("progressbar-back")[0].style.display = "none";
+                            document.getElementsByClassName("links")[0].style.pointerEvents = "all"; 
                         });
                     } 
                 });
