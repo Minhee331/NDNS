@@ -95,7 +95,7 @@
             var strAd = '';
             var startNaver = 0;
             var endGoogle = 0
-            for (let i = data.length - 1; i >= 0; i--){
+            for (let i = 0; i < data.length; i++){
                 if (data[i].source == 'N'){
                     startNaver = i + 1;
                     break;
@@ -254,7 +254,7 @@
             }
             document.getElementById("realReview").innerHTML = strReal;
             document.getElementById("adReview").innerHTML = strAd;
-            
+            pagination(1, 0);
         }
 
         else if (level == 3){
