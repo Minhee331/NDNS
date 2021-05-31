@@ -271,7 +271,7 @@
             for(let i = 0 ; i<dataTr.length; i++){
                 let summarydiv = document.getElementById("summary"+dataTr[i].id);
                 let dataTrValue = dataTr[i].body.replace(/\n/gi, "...</span><span>");
-                summarydiv.innerHTML = '<span>' + dataTrValue + '</span>';
+                summarydiv.innerHTML = '<span>' + dataTrValue + '...</span>';
             }
             pagination(1, 0);
         }

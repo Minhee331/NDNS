@@ -236,7 +236,7 @@ class TextRank:
         #ks = sorted(r, key=r.get, reverse=True)[:int(len(r) * ratio)]
         #ks = sorted(r, key=r.get, reverse=False)[:3]
         #ks = sorted(r, key=r.get, reverse=True)[:3]
-        return '\n'.join(map(lambda k: self.dictCount[k], sorted(ks)))
+        return '\n'.join(map(lambda k: self.dictCount[k][:50], sorted(ks)))
 
 import emoji 
 @csrf_exempt
