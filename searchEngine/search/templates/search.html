@@ -312,7 +312,6 @@
                                 type: "POST",
                                 url: "/runtr/",
                                 data: save_data,
-                                dataType: 'json',
                                 success:function(data3){ 
                                     console.log("tr complete")
                                     resolve(data3);
@@ -336,7 +335,20 @@
                             showData(3, values)
                             document.getElementsByClassName("progressbar-back")[0].style.display = "none";
                             document.getElementsByClassName("links")[0].style.pointerEvents = "all"; 
+                        })
+                        .catch(function(error){
+                            console.log(error)
                         });
+                        // Promise.reject("Testing static reject").then(function(reason) {
+                        // // 호출되지 않음
+                        // }, function(reason) {
+                        //     console.log(reason); // "Testing static reject"
+                        // });
+                        // Promise.reject(new Error("fail")).then(function(error) {
+                        // // 호출되지 않음
+                        // }, function(error) {
+                        //     console.log(error); // Stacktrace
+                        // });
                     } 
                 });
             } 

@@ -1,3 +1,5 @@
+#_*_ coding:utf-8 _*_
+
 from django.shortcuts import render
 from searchEngine.settings import *
 from django.http import JsonResponse
@@ -235,23 +237,28 @@ class TextRank:
         #ks = sorted(r, key=r.get, reverse=False)[:3]
         #ks = sorted(r, key=r.get, reverse=True)[:3]
         return '\n'.join(map(lambda k: self.dictCount[k], sorted(ks)))
-        
+
+import emoji 
 @csrf_exempt
 def runtr(request):
-    
     data = json.loads(request.body)
+    # print(data)
     tagger = Komoran()
     result = []
     for i in data:
-        text = i['body']
-        tr = TextRank()
-        stopword = set([('있', 'VV'), ('하', 'VV'), ('되', 'VV'), ('는', 'VV'), ('을','VV'), ('를', 'VV') ])
-        tr.loadSents(RawSentenceReader(text), lambda sent: filter(lambda x: x not in stopword and x[1] in ('NNG', 'NNP', 'VV', 'VA'), tagger.pos(sent)))
-        tr.build()
-        # ranks = tr.rank()
-        # for k in sorted(ranks, key=ranks.get, reverse=True)[:100]:
-        #     print("\t".join([str(k), str(ranks[k]), str(tr.dictCount[k])]))
-        # print(tr.summarize(0.1))
-        result.append({'id': i['id'], 'body': tr.summarize(0.1)})
+        try:
+            text = emoji.get_emoji_regexp().sub("", i['body'])
+            tr = TextRank()
+            stopword = set([('있', 'VV'), ('하', 'VV'), ('되', 'VV'), ('는', 'VV'), ('을','VV'), ('를', 'VV') ])
+            tr.loadSents(RawSentenceReader(text), lambda sent: filter(lambda x: x not in stopword and x[1] in ('NNG', 'NNP', 'VV', 'VA'), tagger.pos(sent)))
+            tr.build()
+            # ranks = tr.rank()
+            # for k in sorted(ranks, key=ranks.get, reverse=True)[:100]:
+            #     print("\t".join([str(k), str(ranks[k]), str(tr.dictCount[k])]))
+            # print(tr.summarize(0.1))
+            result.append({'id': i['id'], 'body': tr.summarize(0.1)})
+        except:
+            result.append({'id': i['id'], 'body': "텍스트랭크가 원활하게 동작하지 못했습니다"})
+            print(i['body'])
     return JsonResponse(result, safe=False)
 
