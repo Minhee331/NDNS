@@ -19,7 +19,7 @@ def lambda_handler(event, context):
 
     def checkad(body):
         if '제공' in body or '지원' in body or '협찬' in body or '지급' in body:
-            if '받아' in body or '받았' in body or '제공받아' in body or '지원받아' in body:
+            if '받아' in body or '받았' in body or '제공받아' in body or '지원받아' in body or '제품' in body:
                 return True
             elif '않' in body:
                 return False
@@ -44,8 +44,8 @@ def lambda_handler(event, context):
                 html = BeautifulSoup(text, 'html.parser')
                 try:
                     # title 추출
-                    p = re.compile('se-fs-')
-                    title = html.find('span', {'class':p}).get_text()
+                    p = re.compile('se-title-text')
+                    title = html.find('div', {'class':p}).get_text()
                     # body 추출
                     body = ""
                     for bitem in html.find_all('div', {'class':'se-section-text'}):
