@@ -1,28 +1,3 @@
-#_*_ coding:utf-8 _*_
-
-from django.shortcuts import render
-from searchEngine.settings import *
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-import os, io
-import networkx
-import re
-import json
-from konlpy.tag import Komoran
-import chardet
-from multiprocessing import Pipe, Process
-import multiprocessing
-
-# Create your views here.
-def index(request):
-    return render(request, "index.html", {'STATIC_URL': STATIC_URL})
-
-
-def search(request, searchVal):
-    # searchVal : 검색어
-    
-    return render(request, "search.html", {'STATIC_URL': STATIC_URL, 'searchVal':searchVal})
-
 
 class RawSentence:
     def __init__(self, textIter):
@@ -185,7 +160,7 @@ class TextRank:
 
 import emoji 
 @csrf_exempt
-def runtr(request):
+def runtr(request): # main
     data = json.loads(request.body)
     # print(data)
     tagger = Komoran()

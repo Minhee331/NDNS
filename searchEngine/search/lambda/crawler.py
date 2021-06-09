@@ -18,15 +18,15 @@ def lambda_handler(event, context):
     check = False
 
     def checkad(body):
-        if '제공' in body or '지원' in body or '협찬' in body:
+        if '제공' in body or '지원' in body or '협찬' in body or '지급' in body:
             if '받아' in body or '받았' in body or '제공받아' in body or '지원받아' in body:
                 return True
             elif '않' in body:
                 return False
             else:
                 return False
-        if '원고료' in body or '제작비' in body:
-            if '소정' in body or '지원' in body or '받아' in body or '지원받아' in body:
+        if '원고료' in body or '제작비' in body or '수수료' in body or '수익금' in body or '수익금이' in body:
+            if '소정' in body or '지원' in body or '받아' in body or '발생' in body or '발생할' in body or '지급' in body or '지원받아' in body or '지급받아' in body or '파트너스' in body:
                 return True
             else:
                 return False
@@ -166,6 +166,8 @@ def lambda_handler(event, context):
                     title = soup.find("div", {"class": "box_article_tit"})
                 elif(soup.find("div", {"class": "hd-inner"})!= None):
                     title = soup.find("div", {"class": "hd-inner"})
+                elif(soup.find("div", {"class": "area_article"})!= None):
+                    title = soup.find("div", {"class": "area_article"})
                 elif(soup.find("div", {"class": "article_content"})!= None):
                     title = soup.find("div", {"class": "article_content"})
                 elif(soup.find("div", {"id": "head"})!= None):
@@ -183,6 +185,8 @@ def lambda_handler(event, context):
                         title_text = title.find("p", {"class":"txt_sub_tit"})
                     elif(title.find("div", {"class":"title_view"})is not None):
                         title_text = title.find("a")
+                    elif(title.find("strong",{"class": "title_post"})is not None):
+                        title_text = title.find("strong",{"class": "title_post"})
                     elif(title.find('h1') is not None):
                         title_text = title.find('h1')
                     elif(title.find('h2') is not None):
@@ -203,7 +207,8 @@ def lambda_handler(event, context):
                     result = soup.find("div", {"class": "article"})
                 elif(soup.find("div", {"class": "contents_style"})!= None):  #다른 스킨
                     result = soup.find("div", {"class": "contents_style"})
-                
+                else:
+                    result = ''
     
                 
                 if result != '':
@@ -212,9 +217,9 @@ def lambda_handler(event, context):
                         if len(i.get_text(strip=True)) != 0:
                             body = body + i.get_text(strip=True) + '.'
                         
-                    if body == '' and result.find("div", {"class": "contents_style"})!= None:
-                        content = result.find("div", {"class": "contents_style"})
-                        body = content.get_text()
+                    # if body == '' and result.find("div", {"class": "contents_style"})!= None:
+                    #     content = result.find("div", {"class": "contents_style"})
+                    #     body = content.get_text()
                     if body == '' and result.find_all("span")!= None:
                         for i in result.find_all("span"):
                             body = body + i.get_text(strip=True) + '.'
@@ -235,10 +240,11 @@ def lambda_handler(event, context):
                     review["imgUrl"] = img
                 
                     conn.send(review)
+                    conn.close()
+                else:
+                    review["fail"] = 1
+                    conn.send(review)
                     conn.close()    
-                review["fail"] = 1
-                conn.send(review)
-                conn.close()    
         except:
             review["fail"] = 1
             conn.send(review)
